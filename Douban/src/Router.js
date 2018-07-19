@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {  
-    View, 
-    Text, 
     Image,
 } from 'react-native';
 
@@ -10,14 +8,10 @@ import {
     createStackNavigator,
  } from "react-navigation";
 
- import moduleName from 'react';
-
 import DBBookView from "./features/book/DBBookView";
 import DBMovieView from './features/movie/DBMovieView';
 import DBMusicView from './features/music/DBMusicView';
 import DBLocationView from './features/location/DBLocationView';
-
-import TabbarItem from './component/TabbarItem';
 
 // 书
 const BookStackNavigator = createStackNavigator({
