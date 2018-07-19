@@ -17,26 +17,28 @@ import DBMovieView from './features/movie/DBMovieView';
 import DBMusicView from './features/music/DBMusicView';
 import DBLocationView from './features/location/DBLocationView';
 
+import TabbarItem from './component/TabbarItem';
+
 // 书
-const bookStackNavigator = createStackNavigator({
+const BookStackNavigator = createStackNavigator({
     DBBookView: DBBookView,
     
 });
 
 // 电影
-const movieStackNavigator = createStackNavigator({
+const MovieStackNavigator = createStackNavigator({
     DBMovieView: DBMovieView,
     
 });
 
 // 音乐
-const musicStackNavigator = createStackNavigator({
+const MusicStackNavigator = createStackNavigator({
     DBMusicView: DBMusicView,
     
 });
 
 // 同城
-const locationStackNavigator = createStackNavigator({
+const LocationStackNavigator = createStackNavigator({
     DBLocationView: DBLocationView,
     
 });
@@ -44,40 +46,46 @@ const locationStackNavigator = createStackNavigator({
 const TabBarNavigator = createBottomTabNavigator(
     {
         Book: {
-            screen: bookStackNavigator,
+            screen: BookStackNavigator,
             navigationOptions: {
                 tabBarLabel: "图书",
-                tabBarIcon: (focused, tintColor) => (
-                    <Image source={ focused ? require('./assets/tabbar/db_book_selected.png') : require('./assets/tabbar/db_book_normal.png')}/>
+                tabBarIcon: ({focused, tintColor}) => (
+
+                    <Image source={focused ? require('./assets/tabbar/db_book_selected.png') :
+                                                require('./assets/tabbar/db_book_normal.png')}/>
+
                 )
                 
             },
         },
         
         Movie: {
-            screen: movieStackNavigator,
+            screen: MovieStackNavigator,
             navigationOptions: {
                 tabBarLabel: "电影",
-                tabBarIcon: (focused, tintColor) => (
-                    <Image source={ focused ? require('./assets/tabbar/db_movie_selected.png') : require('./assets/tabbar/db_movie_normal.png')}/>
+                tabBarIcon: ({focused, tintColor}) => (
+                    <Image source={focused ? require('./assets/tabbar/db_movie_selected.png') :
+                                                require('./assets/tabbar/db_movie_normal.png')}/>
                 )
             },
         },
         Muisc: {
-            screen: musicStackNavigator,
+            screen: MusicStackNavigator,
             navigationOptions: {
                 tabBarLabel: "音乐",
-                tabBarIcon: (focused, tintColor) => (
-                    <Image source={ focused ? require('./assets/tabbar/db_music_selected.png') : require('./assets/tabbar/db_music_normal.png')}/>
+                tabBarIcon: ({focused, tintColor}) => (
+                    <Image  source={focused ? require('./assets/tabbar/db_music_selected.png') : 
+                                                require('./assets/tabbar/db_music_normal.png')}/>
                 )
             },
         },
         Location: {
-            screen: locationStackNavigator,
+            screen: LocationStackNavigator,
             navigationOptions: {
                 tabBarLabel: "同城",
-                tabBarIcon: (focused, tintColor) => (
-                    <Image source={ focused ? require('./assets/tabbar/db_location_selected.png') : require('./assets/tabbar/db_location_normal.png')}/>
+                tabBarIcon: ({focused, tintColor}) => (
+                    <Image source={focused ? require('./assets/tabbar/db_location_selected.png') : 
+                                                require('./assets/tabbar/db_location_normal.png')}/>
                 )
             },
         },
@@ -94,8 +102,14 @@ const TabBarNavigator = createBottomTabNavigator(
     }
 );
 
-export default class Router extends Component<Props> {
-    render(){
-        return <TabBarNavigator/>;
-    }
-}
+export {
+
+    TabBarNavigator,
+
+    BookStackNavigator,
+    MovieStackNavigator,
+    MusicStackNavigator,
+    LocationStackNavigator,
+
+};
+
