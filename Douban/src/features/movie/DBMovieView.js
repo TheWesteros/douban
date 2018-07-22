@@ -5,6 +5,15 @@ import {
 } from 'react-native';
 
 export default class DBMovieView extends Component {
+
+    static navigationOptions = ({navigation, navigationOptions}) => {
+
+        return ({
+            title: "电影",
+        });
+    };
+
+
   render() {
     return (
       <View>
