@@ -33,8 +33,7 @@ const MusicStackNavigator = createStackNavigator({
 
 // 同城
 const LocationStackNavigator = createStackNavigator({
-    DBLocationView: DBLocationView,
-
+    DBLocationView
 });
 
 const TabBarNavigator = createBottomTabNavigator(
